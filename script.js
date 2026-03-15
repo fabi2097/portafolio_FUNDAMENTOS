@@ -1,103 +1,189 @@
 // ================================================
 //  PORTAFOLIO — Fabian Marca Colque
+//  script.js
+// ================================================
 
-//  1. BOTÓN DE CAMBIO DE TEMA (claro / oscuro)
-// ──────────────────────────────────────────────
 
-// Seleccio el botón por id
+// ── SELECCIÓN DE ELEMENTOS ──────────────────────
+// Guardamos referencias a los elementos que vamos a usar
+
 var botonTema = document.getElementById("btn-tema");
+var botonSaludo = document.getElementById("btn-saludo");
+var mensajeSaludo = document.getElementById("mensaje-saludo");
+var contenedorProyectos = document.getElementById("contenedor-proyectos");
 
-// Variable que guarda el estado actual del tema
-// Empieza en false porque el modo oscuro está desactivado
-var modoOscuroActivo = false;
 
-// Función que cambia el tema al hacer clic
+// ── DATOS DE PROYECTOS ──────────────────────────
+// Arreglo con la información de cada proyecto.
+// JavaScript leerá este arreglo y creará las tarjetas en el HTML.
+
+var proyectos = [
+    {
+        tag: "IA · WordPress",
+        titulo: "Plugin WordPress con IA",
+        descripcion: "Plugin para WordPress LMS con sistema de respuesta basado en inteligencia artificial, mejorando la atención e interacción con usuarios."
+    },
+    {
+        tag: "PLC · Automatización",
+        titulo: "PLC – Planta de Agua JASAP",
+        descripcion: "Lógica de control para automatización en una planta de tratamiento de agua en Villa Tunari, con programación de PLC y monitoreo de variables."
+    },
+    {
+        tag: "Robótica · Control",
+        titulo: "Robot 4 GDL – Control y Programación",
+        descripcion: "Programación del sistema de control de un robot manipulador de 4 grados de libertad para aplicaciones académicas e industriales."
+    }
+];
+
+
+// ── MANEJO DEL TEMA ─────────────────────────────
+// Usa classList.toggle() para agregar o quitar la clase "modo-oscuro"
+// Usa classList.contains() para saber qué tema está activo
+
 function cambiarTema() {
 
-    if (modoOscuroActivo === false) {
-        // Si el modo oscuro no está activo, lo activamos
-        document.body.classList.add("modo-oscuro");
-        botonTema.textContent = "☀️";  // cambia el ícono al sol
-        modoOscuroActivo = true;
+    // toggle() agrega "modo-oscuro" si no existe, o la quita si ya existe
+    document.body.classList.toggle("modo-oscuro");
+
+    // contains() devuelve true si la clase está presente en este momento
+    if (document.body.classList.contains("modo-oscuro")) {
+        botonTema.textContent = "☀️";
+        localStorage.setItem("temaPreferido", "oscuro"); // guardar en localStorage
     } else {
-        // Si ya está activo, lo desactivamos
-        document.body.classList.remove("modo-oscuro");
-        botonTema.textContent = "🌙";  // vuelve a la luna
-        modoOscuroActivo = false;
+        botonTema.textContent = "🌙";
+        localStorage.setItem("temaPreferido", "claro");  // guardar en localStorage
     }
 }
 
-// Escuchamos el evento "click" en el botón y llamamos a la función
 botonTema.addEventListener("click", cambiarTema);
 
 
-// ──────────────────────────────────────────────
-//  2. BOTÓN DE SALUDO EN LA SECCIÓN CONTACTO
-// ──────────────────────────────────────────────
+// ── PERSISTENCIA CON LOCALSTORAGE ───────────────
+// Al cargar la página revisamos si el usuario guardó una preferencia de tema.
+// localStorage guarda datos que persisten aunque se recargue o cierre el navegador.
 
-// Seleccionamos el botón y el párrafo donde mostraremos el mensaje
-var botonSaludo = document.getElementById("btn-saludo");
-var mensajeSaludo = document.getElementById("mensaje-saludo");
+function aplicarTemaGuardado() {
 
-// Variable para saber si el mensaje ya está visible
+    var temaGuardado = localStorage.getItem("temaPreferido"); // leer valor guardado
+
+    if (temaGuardado === "oscuro") {
+        document.body.classList.add("modo-oscuro"); // aplicar clase CSS
+        botonTema.textContent = "☀️";
+    } else {
+        document.body.classList.remove("modo-oscuro");
+        botonTema.textContent = "🌙";
+    }
+}
+
+
+// ── GENERACIÓN DINÁMICA DE PROYECTOS ────────────
+// Recorremos el arreglo "proyectos" y creamos una tarjeta HTML por cada uno.
+// Esto evita repetir código HTML manualmente.
+
+function mostrarProyectos() {
+
+    contenedorProyectos.innerHTML = ""; // limpiar el contenedor antes de llenar
+
+    for (var i = 0; i < proyectos.length; i++) {
+
+        var proyecto = proyectos[i];
+
+        // Crear el elemento <article>
+        var tarjeta = document.createElement("article");
+        tarjeta.classList.add("tarjeta", "proyecto-card");
+
+        // Rellenar el HTML interno de la tarjeta
+        tarjeta.innerHTML =
+            "<span class='tarjeta-tag'>" + proyecto.tag + "</span>" +
+            "<h3>" + proyecto.titulo + "</h3>" +
+            "<p>" + proyecto.descripcion + "</p>";
+
+        // Insertar la tarjeta en el contenedor
+        contenedorProyectos.appendChild(tarjeta);
+    }
+}
+
+
+// ── DELEGACIÓN DE EVENTOS EN PROYECTOS ──────────
+
+function iniciarEventosProyectos() {
+
+    contenedorProyectos.addEventListener("click", function (evento) {
+
+        // closest() busca el ancestro más cercano con esa clase
+        var tarjetaClickeada = evento.target.closest(".proyecto-card");
+
+        // Si el clic fue dentro de una tarjeta
+        if (tarjetaClickeada) {
+
+            // Primero quitamos la clase "seleccionada" de todas las tarjetas
+            var todasLasTarjetas = contenedorProyectos.querySelectorAll(".proyecto-card");
+            for (var j = 0; j < todasLasTarjetas.length; j++) {
+                todasLasTarjetas[j].classList.remove("proyecto-seleccionada");
+            }
+
+            // Luego marcamos solo la tarjeta clickeada
+            tarjetaClickeada.classList.add("proyecto-seleccionada");
+        }
+    });
+}
+
+
+// ── BOTÓN DE SALUDO ─────────────────────────────
+// Muestra u oculta un mensaje al hacer clic en "Enviar saludo"
+
 var mensajeVisible = false;
 
-// Función que muestra u oculta el mensaje de saludo
-function mostrarSaludo() {
+function manejarSaludo() {
 
-    if (mensajeVisible === false) {
-        // Mostramos el mensaje
+    if (!mensajeVisible) {
         mensajeSaludo.textContent = "👋 ¡Gracias por visitar mi portafolio! Si tienes algún proyecto o propuesta, no dudes en escribirme.";
-        mensajeSaludo.style.display = "block";  // lo hacemos visible
+        mensajeSaludo.style.display = "block";
         botonSaludo.textContent = "✖ Cerrar mensaje";
         mensajeVisible = true;
     } else {
-        // Ocultamos el mensaje
         mensajeSaludo.style.display = "none";
         botonSaludo.textContent = "👋 Enviar saludo";
         mensajeVisible = false;
     }
 }
 
-// Escuchamos el clic en el botón de saludo
-botonSaludo.addEventListener("click", mostrarSaludo);
+botonSaludo.addEventListener("click", manejarSaludo);
 
-//  3. RESALTAR EL ENLACE DEL MENÚ ACTIVO
-//     según la sección visible en pantalla
 
-// Obtenemos todos los enlaces del menú
+// ── RESALTAR ENLACE DEL MENÚ ACTIVO ─────────────
+// Al hacer scroll, marcamos el enlace del menú que corresponde a la sección visible.
+
 var enlacesMenu = document.querySelectorAll(".nav-links a");
 
-// Función que marca como activo el enlace correspondiente
 function marcarEnlaceActivo() {
 
-    // Recorremos cada enlace del menú
     for (var i = 0; i < enlacesMenu.length; i++) {
 
         var enlace = enlacesMenu[i];
-
-        // Obtenemos el id de la sección a la que apunta el enlace
-        // El href es algo como "#proyectos", quitamos el "#" con slice(1)
-        var idSeccion = enlace.getAttribute("href").slice(1);
-
-        // Buscamos la sección con ese id en el HTML
+        var idSeccion = enlace.getAttribute("href").slice(1); // quita el "#"
         var seccion = document.getElementById(idSeccion);
 
         if (seccion) {
-            // getBoundingClientRect nos dice la posición del elemento en pantalla
             var posicion = seccion.getBoundingClientRect();
 
-            // Si la sección está en la parte superior de la pantalla
             if (posicion.top <= 100 && posicion.bottom >= 100) {
                 enlace.style.color = "#ffffff";
                 enlace.style.fontWeight = "700";
             } else {
-                enlace.style.color = "";      // restaura el color original
-                enlace.style.fontWeight = ""; // restaura el peso original
+                enlace.style.color = "";
+                enlace.style.fontWeight = "";
             }
         }
     }
 }
 
-// Escuchamos el evento scroll de la página
 window.addEventListener("scroll", marcarEnlaceActivo);
+
+
+// ── INICIALIZACIÓN ──────────────────────────────
+// Estas funciones se ejecutan automáticamente cuando carga la página.
+
+aplicarTemaGuardado();      // 1. Restaurar el tema guardado en localStorage
+mostrarProyectos();          // 2. Generar las tarjetas de proyectos con JS
+iniciarEventosProyectos();   // 3. Activar delegación de eventos en proyectos

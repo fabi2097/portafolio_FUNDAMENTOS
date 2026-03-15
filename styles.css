@@ -68,6 +68,12 @@ body.modo-oscuro .tarjeta {
     border-color: #1e3a6b;
 }
 
+/* Tarjeta seleccionada en modo noche → borde azul claro visible */
+body.modo-oscuro .proyecto-seleccionada {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+}
+
 /* Títulos dentro de tarjetas → blanco azulado */
 body.modo-oscuro .tarjeta h3,
 body.modo-oscuro .linea-tiempo strong {
@@ -448,6 +454,13 @@ body.modo-oscuro .hero .btn-secundario:hover {
 .tarjeta:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarjeta de proyecto seleccionada al hacer clic (aplicada con JavaScript) */
+.proyecto-seleccionada {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    transform: translateY(-4px);
 }
 
 /* Tarjeta destacada (maestrías) */
