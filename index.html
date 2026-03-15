@@ -4,107 +4,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Fabian Marca Colque</title>
-
-    <!-- Hoja de estilos externa -->
+    <meta name="description"
+        content="Portafolio de Fabian Marca Colque, Ingeniero Electromecánico especializado en automatización industrial y tecnología.">
+    <title>Fabian Marca Colque | Portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <header>
+
+    <!-- NAVEGACIÓN -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <a href="#inicio" class="nav-logo">FM<span>C</span></a>
             <nav>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="proyectos.html">Proyectos</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
+                    <li><a href="#formacion">Formación</a></li>
+                    <li><a href="#contacto" class="btn-nav">Contacto</a></li>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <section>
-            <h1>Bienvenido a mi Portafolio</h1>
-            <p>
-                Mi nombre es Fabian Marca Colque, soy Ingeniero Electromecánico con experiencia en
-                automatización industrial, software industrial y desarrollo de soluciones tecnológicas
-                para procesos industriales. Me apasiona la programación y la implementación de sistemas
-                que aporten eficiencia e innovación en el sector Industrial. Actualmente me desempeño
-                como gerente de SERINTBO, combinando la gestión, la enseñanza y el desarrollo de
-                proyectos tecnológicos e industriales.
-            </p>
+    <main>
 
-            <!-- PROYECTOS -->
-            <h2>Mis Proyectos</h2>
-            <div class="proyectos">
-                <div class="card">
-                    <h3>Plugin WordPress con IA</h3>
-                    <p>
-                        Desarrollo de un plugin orientado a plataformas educativas y sitios web en
-                        WordPress LMS, incorporando un sistema de respuesta basado en inteligencia
-                        artificial para mejorar la atención, la interacción con usuarios y la
-                        automatización de consultas frecuentes.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>PLC – Planta de Agua JASAP</h3>
-                    <p>
-                        Diseño e implementación de lógica de control para procesos de automatización
-                        en una planta de tratamiento de agua en Villa Tunari, aplicando programación
-                        de PLC, monitoreo de variables y control de procesos industriales.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Robot 4 GDL – Control y Programación</h3>
-                    <p>
-                        Programación del sistema de control de un robot manipulador de 4 grados de
-                        libertad, enfocado en movimiento, posicionamiento y lógica de operación
-                        para aplicaciones académicas e industriales.
-                    </p>
+        <!-- HERO -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <p class="hero-tag">Ingeniería · Automatización · Tecnología</p>
+                <h1>Fabian Marca Colque</h1>
+                <h2 class="hero-subtitle">Ingeniero Electromecánico</h2>
+                <p class="hero-desc">
+                    Especializado en automatización industrial, software industrial y soluciones
+                    tecnológicas para procesos industriales. Gerente de SERINTBO, docente universitario
+                    y apasionado por la innovación tecnológica aplicada al sector industrial.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contacto" class="btn btn-outline">Contactar</a>
                 </div>
             </div>
-
-            <!-- EXPERIENCIA LABORAL -->
-            <h2>Experiencia Laboral</h2>
-            <ul class="lista">
-                <li><strong>Gerente</strong> – Servicio Integral de Calidad SERINTBO (actualidad)</li>
-                <li><strong>Docente de Mecatrónica Robótica</strong> – Universidad Simón I. Patiño (2026)</li>
-                <li><strong>Docente de Dibujo Mecánico</strong> – Universidad Mayor de San Simón / Politécnico del Valle
-                    Alto (2025)</li>
-                <li><strong>Docente de Razonamiento Lógico</strong> – Universidad Mayor de San Simón, Becas PBI (2025)
-                </li>
-                <li><strong>Docente de Dibujo de Especialidad (eléctrico)</strong> – Instituto IPRATE (2024)</li>
-                <li><strong>Ingeniero en Automatización Industrial</strong> – SERINTBO (2022–2023)</li>
-                <li><strong>Auxiliar de Electrónica Analógica I</strong> – UMSS (2022)</li>
-                <li><strong>Auxiliar de Laboratorio de Control y Automatización Industrial</strong> – UMSS (2020–2022)
-                </li>
-                <li><strong>Auxiliar de Ingeniería y Proyectos</strong> – Ideas Automation (2020)</li>
-                <li><strong>Profesor de Matemáticas y Física (preuniversitario)</strong> – Instituto FID</li>
-            </ul>
-
-            <!-- FORMACIÓN ACADÉMICA -->
-            <h2>Formación Académica</h2>
-            <ul class="lista">
-                <li><strong>Máster en Ingeniería de Software y Sistemas Informáticos</strong> – UNIR (2025)</li>
-                <li><strong>Máster en Administración de Empresas</strong> – UNIR (2025)</li>
-                <li><strong>Continuing Education Certificate in Leadership</strong> – City University Miami (2023)</li>
-                <li><strong>Ingeniería Electromecánica</strong> – Universidad Mayor de San Simón (2022)</li>
-                <li><strong>Diplomado en Control y Automatización</strong> – UPB (2021)</li>
-                <li><strong>Diplomado en Mantenimiento Industrial</strong> – UMSS (2022)</li>
-                <li><strong>Diplomado en Automatización Industrial</strong> – UPEA (2022)</li>
-                <li><strong>Diplomado en Educación Superior</strong> – UCB (2023)</li>
-                <li><strong>Diplomado en Desarrollo Web Fullstack</strong> – Universidad Simón I. Patiño (2023)</li>
-                <li><strong>Bachiller en Humanidades</strong> – Colegio Nacional Calama (2014)</li>
-                <li><strong>Técnico Medio en Carpintería</strong> – Colegio Nacional Calama (2014)</li>
-            </ul>
-
         </section>
 
-        <footer>
-            <p>© 2024 Fabian Marca Colque. Todos los derechos reservados.</p>
-        </footer>
-    </div>
+        <!-- PROYECTOS -->
+        <section class="seccion" id="proyectos">
+            <div class="contenedor">
+                <p class="tag">Trabajo destacado</p>
+                <h2>Mis Proyectos</h2>
+                <p class="subtitulo">Soluciones desarrolladas en el cruce entre ingeniería industrial y software.</p>
+
+                <div class="grid-proyectos">
+
+                    <article class="card-proyecto">
+                        <span class="card-tag">IA · WordPress</span>
+                        <h3>Plugin WordPress con IA</h3>
+                        <p>
+                            Desarrollo de un plugin orientado a plataformas educativas y sitios
+                            web en WordPress LMS, incorporando un sistema de respuesta basado en
+                            inteligencia artificial para mejorar la atención, la interacción con
+                            usuarios y la automatización de consultas frecuentes.
+                        </p>
+                    </article>
+
+                    <article class="card-proyecto">
+                        <span class="card-tag">PLC · Automatización</span>
+                        <h3>PLC – Planta de Agua JASAP</h3>
+                        <p>
+                            Diseño e implementación de lógica de control para procesos de
+                            automatización en una planta de tratamiento de agua en Villa Tunari,
+                            aplicando programación de PLC, monitoreo de variables y control de
+                            procesos industriales.
+                        </p>
+                    </article>
+
+                    <article class="card-proyecto">
+                        <span class="card-tag">Robótica · Control</span>
+                        <h3>Robot 4 GDL – Control y Programación</h3>
+                        <p>
+                            Programación del sistema de control de un robot manipulador de 4
+                            grados de libertad, enfocado en movimiento, posicionamiento y lógica
+                            de operación para aplicaciones académicas e industriales.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCIA LABORAL -->
+        <section class="seccion seccion-alt" id="experiencia">
+            <div class="contenedor">
+                <p class="tag">Trayectoria</p>
+                <h2>Experiencia Laboral</h2>
+                <p class="subtitulo">Una carrera construida en la intersección de ingeniería, docencia y gestión.</p>
+
+                <ul class="timeline">
+                    <li>
+                        <span class="tl-fecha">Actualidad</span>
+                        <strong>Gerente General</strong>
+                        <span>Servicio Integral de Calidad — SERINTBO</span>
+                    </li>
+                    <li>
+                        <span class="tl-fecha">2026</span>
+                        <strong>Docente de Mecatrónica Robótica</strong>
+                        <span>Universidad Simón I. Patiño</span>
+                    </li>
+                    <li>
+                        <span class="tl-fecha">2025</span>
+                        <strong>Docente de Dibujo Mecánico</strong>
+                        <span>Universidad Mayor de San Simón / Politécnico del Valle Alto</span>
+                    </li>
+                    <li>
+                        <span class="tl-fecha">2025</span>
+                        <strong>Docente de Razonamiento Lógico</strong>
+                        <span>Universidad Mayor de San Simón — Becas PBI</span>
+                    </li>
+                    <li>
+                        <span class="tl-fecha">2024</span>
+                        <strong>Docente de Dibujo de Especialidad (Eléctrico)</strong>
+                        <span>Instituto IPRATE</span>
+                    </li>
+                    <li>
+                        <span class="tl-fecha">2022–2023</span>
+                        <strong>Ingeniero en Automatización Industrial</strong>
+                        <span>SERINTBO</span>
+                    </li>
+                    <li>
+                        <span class="tl-fecha">2022</span>
+                        <strong>Auxiliar de Electrónica Analógica I</strong>
+                        <span>Universidad Mayor de San Simón — UMSS</span>
+                    </li>
+                    <li>
+                        <span class="tl-fecha">2020–2022</span>
+                        <strong>Auxiliar de Laboratorio de Control y Automatización Industrial</strong>
+                        <span>Universidad Mayor de San Simón — UMSS</span>
+                    </li>
+                    <li>
+                        <span class="tl-fecha">2020</span>
+                        <strong>Auxiliar de Ingeniería y Proyectos</strong>
+                        <span>Ideas Automation</span>
+                    </li>
+                    <li>
+                        <span class="tl-fecha">Anterior</span>
+                        <strong>Profesor de Matemáticas y Física (Preuniversitario)</strong>
+                        <span>Instituto FID</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FORMACIÓN ACADÉMICA -->
+        <section class="seccion" id="formacion">
+            <div class="contenedor">
+                <p class="tag">Educación</p>
+                <h2>Formación Académica</h2>
+                <p class="subtitulo">Sólida base académica en ingeniería, gestión y tecnología.</p>
+
+                <div class="grid-educacion">
+                    <article class="card-edu card-edu-destacada">
+                        <span class="edu-anio">2025</span>
+                        <h3>Máster en Ingeniería de Software y Sistemas Informáticos</h3>
+                        <p>UNIR — Universidad Internacional de La Rioja</p>
+                    </article>
+                    <article class="card-edu card-edu-destacada">
+                        <span class="edu-anio">2025</span>
+                        <h3>Máster en Administración de Empresas (MBA)</h3>
+                        <p>UNIR — Universidad Internacional de La Rioja</p>
+                    </article>
+                    <article class="card-edu">
+                        <span class="edu-anio">2023</span>
+                        <h3>Continuing Education Certificate in Leadership</h3>
+                        <p>City University of Miami</p>
+                    </article>
+                    <article class="card-edu">
+                        <span class="edu-anio">2023</span>
+                        <h3>Diplomado en Desarrollo Web Fullstack</h3>
+                        <p>Universidad Simón I. Patiño</p>
+                    </article>
+                    <article class="card-edu">
+                        <span class="edu-anio">2023</span>
+                        <h3>Diplomado en Educación Superior</h3>
+                        <p>UCB — Universidad Católica Boliviana</p>
+                    </article>
+                    <article class="card-edu">
+                        <span class="edu-anio">2022</span>
+                        <h3>Ingeniería Electromecánica</h3>
+                        <p>Universidad Mayor de San Simón — UMSS</p>
+                    </article>
+                    <article class="card-edu">
+                        <span class="edu-anio">2022</span>
+                        <h3>Diplomado en Mantenimiento Industrial</h3>
+                        <p>Universidad Mayor de San Simón — UMSS</p>
+                    </article>
+                    <article class="card-edu">
+                        <span class="edu-anio">2022</span>
+                        <h3>Diplomado en Automatización Industrial</h3>
+                        <p>UPEA — Universidad Pública de El Alto</p>
+                    </article>
+                    <article class="card-edu">
+                        <span class="edu-anio">2021</span>
+                        <h3>Diplomado en Control y Automatización</h3>
+                        <p>UPB — Universidad Privada Boliviana</p>
+                    </article>
+                    <article class="card-edu">
+                        <span class="edu-anio">2014</span>
+                        <h3>Bachiller en Humanidades · Técnico Medio en Carpintería</h3>
+                        <p>Colegio Nacional Calama</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section class="seccion seccion-contacto" id="contacto">
+            <div class="contenedor contenedor-angosto">
+                <p class="tag tag-claro">Hablemos</p>
+                <h2 class="titulo-claro">Contacto</h2>
+                <p class="subtitulo subtitulo-claro">¿Tienes un proyecto en mente? Escríbeme con confianza.</p>
+
+                <div class="grid-contacto">
+                    <a href="mailto:fabian.marca1@gmail.com" class="card-contacto">
+                        <span class="contacto-label">Correo electrónico</span>
+                        <span class="contacto-valor">fabian.marca1@gmail.com</span>
+                    </a>
+                    <a href="tel:+59177927175" class="card-contacto">
+                        <span class="contacto-label">Teléfono</span>
+                        <span class="contacto-valor">+591 77927175</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/fabian-marca-colque-464741189/" target="_blank" rel="noopener"
+                        class="card-contacto">
+                        <span class="contacto-label">LinkedIn</span>
+                        <span class="contacto-valor">linkedin.com/in/fabian-marca-colque-464741189/</span>
+                    </a>
+                    <a href="https://github.com/fabi2097" target="_blank" rel="noopener" class="card-contacto">
+                        <span class="contacto-label">GitHub</span>
+                        <span class="contacto-valor">github.com/fabi2097</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <p>© 2026 <strong>Fabian Marca Colque</strong>. Todos los derechos reservados.</p>
+        <p class="footer-sub">Ingeniero Electromecánico · Gerente SERINTBO · Cochabamba, Bolivia</p>
+    </footer>
+
 </body>
 
 </html>
